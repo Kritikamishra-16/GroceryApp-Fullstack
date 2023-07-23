@@ -1,0 +1,45 @@
+
+<div class="container mt-5">
+
+    <div class="row product-details mt-3 " *ngIf="productData">
+        <img class="centered-image" [src]="imageBaseUrl+productData.productImage" alt="productImage">
+    </div>
+    <div class="row mt-3 justify-content-center" *ngIf="productData" >
+        <div class="col-md-1"></div>
+        <div class="col-sm-5">
+            <div class="details">
+                <h3><strong>{{productData.productName}}</strong>
+                    <button class="favorite-button" (click)="toggleFavorite()">
+                        <mat-icon [ngClass]="{ 'favorite-icon': isFavorite, 'favorite-icon-filled': isFavoriteFilled }">
+                            <i class="material-icons">favorite</i>
+                        </mat-icon>
+                      </button>
+                </h3>
+                <h5>&#x20B9; {{productData.productPrice}}</h5>
+                <div class="discount-text">
+                    FLAT {{productData.discount}}% OFF
+                </div>
+                <ngb-rating [max]="5" [readonly]="true" [rate]="finalRating" ></ngb-rating>
+                <small style="color: gray;">*Rating from {{ratingCount}} customers</small>
+
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="quantity-group mt-4">
+                <button (click)="handleQuantity('min')" class="quantity-btn">-</button>
+                <input type="text" class="quantity-input" value="{{productQuantity}}">
+                <button (click)="handleQuantity('plus')" class="quantity-btn">+</button>
+            </div>
+        </div>
+        <div  class="col-sm-2">
+            <button *ngIf="removeCart" (click)="removeToCart()" class="cart-button ml-0">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button *ngIf="!removeCart" (click)="addToCart()" class="cart-button ml-0">
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+        </div>
+    </div>
+
+
+</div>

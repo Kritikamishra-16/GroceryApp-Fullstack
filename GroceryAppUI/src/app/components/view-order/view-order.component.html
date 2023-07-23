@@ -1,0 +1,16 @@
+<div class="container mt-4">
+    <select (change)="yearSelected($event)">
+        <option value="">Select a year</option>
+        <option *ngFor="let year of yearList" [value]="year">{{year}}</option>
+    </select>
+    <select (change)="monthSelected($event)">
+        <option value=""> Select a month</option>
+        <option *ngFor="let month of monthList" [value]="month">{{month}}</option>
+    </select>
+    
+    <button (click)="search()">Search</button>
+    <h1>Top 5 orders</h1>
+    <div *ngFor="let order of productlist">
+        <div>{{order.productName}}</div>
+    </div>
+</div>

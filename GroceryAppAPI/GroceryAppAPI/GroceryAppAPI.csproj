@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Helpers\PasswordHasher.cs" />
+    <Compile Remove="Repository\Abstract\Interface.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Uploads\0bc2173f-c579-427b-8f6f-c1e647f25bcf.jpg" />
+    <None Remove="Uploads\7533fdcb-519d-4ca6-9375-225cf89e4f98.jpg" />
+    <None Remove="Uploads\d56412ef-6b35-4b05-b464-176c34671ea1.jpg" />
+    <None Remove="Uploads\dcf314c4-4c15-41ad-8255-71788a423ec7.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

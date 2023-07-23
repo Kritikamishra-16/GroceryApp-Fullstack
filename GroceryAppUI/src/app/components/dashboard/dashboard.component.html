@@ -1,0 +1,69 @@
+  <!--DASHBOARD PRODUCTS-->
+  <div class="container mt-4">
+
+    <div class="row mb-4">
+      <div class="col-sm-6">
+        <div class="btn-group">
+          <button type="button"  class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Category
+          </button>
+          <ul class="dropdown-menu" >
+            <li><a class="dropdown-item" (click)="filter('')" >All</a></li>
+            <li><a class="dropdown-item" (click)="filter('Fruits')" >Fruits</a></li>
+            <li><a class="dropdown-item" (click)="filter('Vegetables')" >Vegetables</a></li>
+            <li><a class="dropdown-item" (click)="filter('Snacks')" >Snacks</a></li>
+            <li><a class="dropdown-item" (click)="filter('BreadBakery')" >Bread & Bakery</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-6 form-group search-bar">
+        <input type="text" class=" search-input " [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products..">
+        <span class="fa fa-search search-icon search-button"></span>
+      </div>
+    </div>
+
+    <div *ngIf="products">
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+            <ng-container *ngIf="role==='admin'">
+              <th scope="col">Action</th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of filterCategory | filter:searchKey:'productName' | paginate:{itemsPerPage:3,currentPage:p} "  (click)="productDetails(product.id)" >
+            <td scope="row">{{product.productName}}</td>
+            <td>{{product.productDescription}}</td>
+            <td> &#8377;{{product.productPrice}}</td>
+            <td>
+              <img class="productImage" style="height: 80px; width: 80px; " 
+               [src]="imageBaseUrl+product.productImage">
+            </td>
+            <ng-container *ngIf="role=== 'admin'">
+              <td>
+                <a href="/dashboard/edit/{{product.id}}">
+                  <button type="button" class="btn btn-warning">Edit</button>
+                </a>
+                <a href="#">
+                  <button type="button" class="btn btn-danger" (click)="deleteProduct(product)">Delete</button>
+                </a>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p=$event">
+      </pagination-controls>
+    </div>
+  </div>
+
+
+
+
+
+

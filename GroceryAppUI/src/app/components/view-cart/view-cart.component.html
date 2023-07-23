@@ -1,0 +1,33 @@
+<div class="container" *ngIf="cartItems">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+    <div  *ngFor="let product of cartItems" class="product-item">
+        
+        <div class="product-info row">
+            <div class="col-1 checkbox">
+              <input type="checkbox" [(ngModel)]="product.selected" (change)="onSelectionChange(product)">
+            </div>
+            <div class="col-2">
+              <img class="product-image" [src]="imageBaseUrl+product.productDetails.productImage" alt="cartproductsImage">
+            </div>
+            <div class="col-4">
+              <div class="product-details">
+                <div class="product-name">{{ product.productDetails.productName }}</div>
+                <div class="product-category">{{ product.productDetails.productCategory }}</div>
+                <div class="product-price">{{ product.productDetails.productPrice | currency }}</div>
+              </div>
+            </div>
+              <div class="product-quantity col-5">
+                <button (click)="handleQuantity('min',product)">-</button>
+                <span>{{ product.quantity }}</span>
+                <button (click)="handleQuantity('plus',product)">+</button>
+              </div>
+ 
+          </div>
+          
+        </div>
+    </div>
+    </div>   
+</div>
+    <button  (click)="storeProductsInOrderDB()" class="place-order-button">Place Order</button>
+

@@ -1,0 +1,31 @@
+<div class="container" *ngIf="orderItems">
+    <div class="heading">
+        <strong>My Orders</strong>
+      </div>      
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+    <div  *ngFor="let product of orderItems" class="product-item">
+        
+        <div class="product-info row">
+            <div class="col-4">
+              <img class="product-image" [src]="imageBaseUrl+product.productDetails.productImage" alt="cartproductsImage">
+            </div>
+            <div class="col-4">
+              <div class="product-details">
+                <div class="product-name">{{ product.productDetails.productName }}</div>
+                <div class="product-category">{{ product.productDetails.productCategory }}</div>
+                <div class="product-quantity">{{ product.quantity }} items</div>
+              </div>
+            </div>
+            <div class="rating col-2">
+              <p>Rate us:</p>
+              <ngb-rating (click)="getRating(product)" [max]="5" [formControl]="ratingControl"></ngb-rating>
+            </div> 
+
+          </div>
+        </div>
+    </div>
+    </div>   
+</div>
+
+

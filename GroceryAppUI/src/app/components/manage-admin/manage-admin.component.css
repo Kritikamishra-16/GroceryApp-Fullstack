@@ -1,0 +1,28 @@
+.container{
+    margin-top: 50px;
+}
+.user-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-item {
+    margin-bottom: 10px;
+  }
+  
+  .user-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user-item input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .btn{
+    width: 400px;
+  }
+  
+ 
+  

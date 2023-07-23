@@ -1,0 +1,107 @@
+.productImage{
+  display: block;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Table header */
+thead {
+  background-color: #f2f2f2;
+}
+
+th {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Table body */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ececff;
+}
+
+td {
+  padding: 10px;
+}
+
+/* Hover effect on rows */
+tbody tr:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+
+/* Borders */
+table {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+/* Example typography */
+th {
+  font-weight: bold;
+}
+
+td {
+  font-size: 14px;
+}
+
+/* Example alignment */
+td {
+  text-align: center;
+}
+
+li a {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right:35px; 
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border: none;
+  border-radius: 6px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 40px 40px 40px 40px;
+  
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.search-button {
+  border: none;
+  color: rgb(40, 167, 69);;
+  padding: 6px;
+  cursor: pointer;
+}
+

@@ -1,0 +1,22 @@
+.applogo{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+}
+
+.cart-count {
+    display: inline-block;
+    background-color:rgb(255, 193, 7);
+    color: #fff;
+    padding: 0px 7px;
+    border-radius: 50%;
+  }
+  
+  .cart-count:hover {
+    background-color: #cc0000;
+  }
+  
+  
+  

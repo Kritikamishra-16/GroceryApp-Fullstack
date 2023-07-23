@@ -1,0 +1,69 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Sign Up</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="signUpForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['fullName'].dirty && (signUpForm.get('fullName')?.errors?.['required']|| signUpForm.get('fullName')?.errors?.['maxlength'] ||signUpForm.get('fullName')?.errors?.['pattern'] )">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="fullName" type="text" placeholder="FullName">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.get('fullName')?.errors?.['required']" class="text-danger">Full Name is required.</small>
+                            <small *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.get('fullName')?.errors?.['maxlength']" class="text-danger">Full Name cannot exceed 50 characters.</small>
+                            <small *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.get('fullName')?.errors?.['pattern']" class="text-danger">Full Name can only contain alphabets and spaces.</small>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['email'].dirty && (signUpForm.get('email')?.errors?.['required']|| signUpForm.get('email')?.errors?.['email'] )">
+                                    <span class="fa fa-envelope p-2"></span>
+                                    <input formControlName="email" type="email" placeholder="Email">
+                                </div>
+                            </div> 
+                            <small *ngIf="signUpForm.controls['email'].dirty &&signUpForm.get('email')?.errors?.['required']" class="text-danger">Email is required.</small>
+                            <small *ngIf="signUpForm.controls['email'].dirty &&signUpForm.get('email')?.errors?.['email']" class="text-danger">Invalid email format.</small>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['phoneNumber'].dirty && (signUpForm.get('phoneNumber')?.errors?.['required']|| signUpForm.get('phoneNumber')?.errors?.['pattern'] )">
+                                    <span class="fa fa-phone p-2"></span>
+                                    <input formControlName="phoneNumber" type="text" placeholder="PhoneNumber">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['phoneNumber'].dirty && signUpForm.get('phoneNumber')?.errors?.['required']" class="text-danger">Phone Number is required.</small>
+                            <small *ngIf="signUpForm.controls['phoneNumber'].dirty &&signUpForm.get('phoneNumber')?.errors?.['pattern']" class="text-danger">Invalid phone number format. Please enter 10 digits.</small>
+                            
+
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && (signUpForm.get('password')?.errors?.['required']|| signUpForm.get('password')?.errors?.['minlength']|| signUpForm.get('password')?.errors?.['invalidPassword'] )">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Password">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}" ></span>
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.get('password')?.errors?.['required']" class="text-danger">Password is required.</small>
+                            <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.get('password')?.errors?.['minlength']" class="text-danger">Password should be at least 8 characters long.</small>
+                            <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.get('password')?.errors?.['invalidPassword']" class="text-danger">Password should have at least 1 special character, 1 number, and 1 alphabet.</small>
+                        
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['confirmPassword'].dirty && (signUpForm.get('confirmPassword')?.errors?.['required']|| signUpForm.get('confirmPassword')?.errors?.['passwordMismatch'] )">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="confirmPassword"[type]="type2" placeholder="Confirm Password">
+                                    <span (click)="hideShowPass2()" class="fa {{eyeIcon2}}" ></span>
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['confirmPassword'].dirty && signUpForm.get('confirmPassword')?.errors?.['required']" class="text-danger">Confirm Password is required.</small>
+                            <small *ngIf="signUpForm.controls['confirmPassword'].dirty && signUpForm.get('confirmPassword')?.errors?.['passwordMismatch']" class="text-danger">Passwords do not match.</small>
+                    
+                            <button (click)="onSignUp()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign up</button>
+                            <div class="text-center pt-4 text-muted">Already have account?<a id="forget" routerLink="/login">Login</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

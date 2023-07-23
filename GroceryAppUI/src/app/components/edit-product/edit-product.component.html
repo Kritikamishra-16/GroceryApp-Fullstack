@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="my-5 row" style="width: 90%;">
+        <form [formGroup]="addProductForm" (ngSubmit)="updateProduct()">
+            <h3>Edit-Product</h3>
+            <div class="mb-3">
+               <label for="productName" class="form-label">Product Name</label>
+              <input  type="text" formControlName="productName"  class="form-control custom-input" id="productName">
+              <div *ngIf="addProductForm.controls['productName'].invalid && (addProductForm.controls['productName'].dirty || addProductForm.controls['productName'].touched)" class="error text-danger">
+                <div *ngIf="addProductForm.controls['productName'].errors?.['required']" class="text-danger">Product Name is required.</div>
+                <div *ngIf="addProductForm.controls['productName'].errors?.['pattern']" class="text-danger">Product Name must be alphanumeric and up to 100 characters.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="floatingTextarea2" class="form-label">Description</label>
+                <textarea formControlName="productDescription" class="form-control" placeholder="product description here..." id="floatingTextarea2" style="height: 100px"></textarea>
+                <div *ngIf="addProductForm.controls['productDescription'].invalid && (addProductForm.controls['productDescription'].dirty || addProductForm.controls['productDescription'].touched)" class="error text-danger">
+                    <div *ngIf="addProductForm.controls['productDescription'].errors?.['required']" class="text-danger">Description is required.</div>
+                    <div *ngIf="addProductForm.controls['productDescription'].errors?.['pattern']" class="text-danger">Description must be alphanumeric and up to 255 characters.</div>
+                  </div>
+            </div>
+              <div class="mb-3">
+                <label for="productCategory" class="form-label">Category</label>
+                <input type="text" formControlName="productCategory" class="form-control" id="productCategory">
+                <div *ngIf="addProductForm.controls['productCategory'].invalid && (addProductForm.controls['productCategory'].dirty || addProductForm.controls['productCategory'].touched)" class="error text-danger">
+                    <div *ngIf="addProductForm.controls['productCategory'].errors?.['required']" class="text-danger">Category is required.</div>
+                    <div *ngIf="addProductForm.controls['productCategory'].errors?.['pattern']" class="text-danger">Category must be alphanumeric and up to 100 characters.</div>
+                  </div>
+            </div>
+              <div class="mb-3">
+                <label for="availableQuantity" class="form-label">Available Quantity</label>
+                <input type="number" formControlName="availableQuantity" class="form-control" id="availableQuantity">
+                <div *ngIf="addProductForm.controls['availableQuantity'].invalid && (addProductForm.controls['availableQuantity'].dirty || addProductForm.controls['availableQuantity'].touched)" class="error text-danger">
+                    <div *ngIf="addProductForm.controls['availableQuantity'].errors?.['required']" class="text-danger">Available Quantity is required.</div>
+                    <div *ngIf="addProductForm.controls['availableQuantity'].errors?.['pattern']" class="text-danger">Available quantity should be numeric</div>          
+                    </div>
+                </div>
+              <div class="mb-3">
+                <label for="imageFile" class="form-label">Image</label>
+                <input type="file" (change)="onChange($event)" formControlName="imageFile" class="form-control" id="imageFile">
+                <div *ngIf="addProductForm.controls['imageFile'].invalid && (addProductForm.controls['imageFile'].dirty || addProductForm.controls['imageFile'].touched)" class="error text-danger">
+                    <div *ngIf="addProductForm.controls['imageFile'].errors?.['required']" class="text-danger">Image is required.</div>
+                    <div *ngIf="addProductForm.controls['imageFile'].errors?.['pattern']" class="text-danger">Image must be in JPG or PNG format.</div>
+                  </div>
+            </div>
+              <div class="mb-3">
+                <label for="productPrice" class="form-label">Price</label>
+                <input type="text" formControlName="productPrice" class="form-control" id="productPrice">
+                <div *ngIf="addProductForm.controls['productPrice'].invalid && (addProductForm.controls['productPrice'].dirty || addProductForm.controls['productPrice'].touched)" class="error text-danger">
+                    <div *ngIf="addProductForm.controls['productPrice'].errors?.['required']" class="text-danger">Price is required.</div>
+                    <div *ngIf="addProductForm.controls['productPrice'].errors?.['pattern']" class="text-danger">Price must be a decimal value.</div>
+                  </div>
+            </div>
+              <div class="mb-3">
+                <label for="discount" class="form-label">Discount</label>
+                <input type="text" formControlName="discount" class="form-control" id="discount">
+                <div *ngIf="addProductForm.controls['discount'].invalid && (addProductForm.controls['discount'].dirty || addProductForm.controls['discount'].touched)" class="error text-danger">
+                    <div *ngIf="addProductForm.controls['discount'].errors?.['pattern']" class="text-danger">discount must be a decimal value.</div>
+                  </div>
+            </div>
+              <div class="mb-3">
+                <label for="specification" class="form-label">Specification</label>
+                <input type="text" formControlName="specification"  class="form-control" id="specification">
+                <div *ngIf="addProductForm.controls['specification'].invalid && (addProductForm.controls['specification'].dirty || addProductForm.controls['specification'].touched)" class="error text-danger">
+                    <div *ngIf="addProductForm.controls['specification'].errors?.['pattern']" class="text-danger">specification must be alphanumeric with a maximum length of 100 characters.</div>
+                  </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary"  [disabled]="addProductForm.invalid">Update Product</button> 
+            <button class="btn btn-danger" (click)="clearFields()">Clear</button> 
+          </form>
+        
+    </div>
+</div>

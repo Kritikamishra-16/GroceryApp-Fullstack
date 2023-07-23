@@ -1,0 +1,13 @@
+<div class="container">
+    <strong>Mark as Admin</strong>
+    <div class="user-list mt-4">
+        <div *ngFor="let user of userList" class="user-item">
+          <label>
+            <input type="checkbox" [(ngModel)]="user.selected">
+            {{ user.fullName }}
+          </label>
+        </div>
+        <button (click)="makeAdmin()" class="btn btn-warning">Update Admin</button>
+      </div>
+      
+</div>
