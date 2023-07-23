@@ -152,7 +152,10 @@ Once the project is running, open your web browser and navigate to `http://local
 <img width="960" alt="Screenshot 2023-07-19 130405" src="https://github.com/Kritikamishra-16/GroceryApp-Fullstack/assets/67709501/f6085bcb-a80a-4380-9ade-c928a2268299">
 
 <br>
+
 ## Contributing
 
-Contributions to this project are welcome. Feel free to fork the repository and submit pull requests with your improvements or bug fixes.
+We welcome contributions! Please fork this repository and create a pull request with your changes.
+
+
 
